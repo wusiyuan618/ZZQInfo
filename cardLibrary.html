@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>思源工作室</title>
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/mui.picker.css" />
+		<link rel="stylesheet" href="css/mui.poppicker.css" />
+		<link rel="stylesheet" href="css/cardLibrary.css" />
+		<link rel="stylesheet" href="css/tablePage.css" />
+	</head>
+
+	<body>
+		<header style="background: #FFFFFF;" class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">棋库</h1>
+			<img id="about" src="imges/about.png" style="width: 30px;height: 30px;position: absolute;right: 15px;top: 8px;" />
+		</header>
+		<div class="mui-content">
+			<div class="topBox">
+				<div class="topButton" id="selectRace">
+					<span id="raceSpan" class="topButton">种族：全部</span>
+				</div>
+				<div class="topButton" id="selectProfesstion">
+					<span id="professtionSpan" class="topButton">职业：全部</span>
+				</div>
+			</div>
+		</div>
+		<div style="margin-top: 50px;" class="skillDescraption">
+			<span class="skillDescraption">种族技能描述：</span>
+			<span id="raceDescraption" style="flex: 1;" class="skillDescraption">请选择一个种族</span>
+		</div>
+		<div class="skillDescraption">
+			<span class="skillDescraption">职业技能描述：</span>
+			<span id="professtionDescraption" style="flex: 1;" class="skillDescraption">请选择一个职业</span>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>英雄</th>
+					<th>职业</th>
+					<th>种族</th>
+					<th>金币</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/CardLibaray.js"></script>
+		<script type="text/javascript" src="js/CardFactory.js"></script>
+		<script type="text/javascript" src="js/mui.picker.js"></script>
+		<script type="text/javascript" src="js/mui.poppicker.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+		<script>
+			mui.init();
+			/**
+			 * 获取对象属性的值
+			 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+			 * @param {Object} obj 对象
+			 * @param {String} param 属性名
+			 */
+			var CardLibaray = new CardLibaray();
+			var CardFactory = new CardFactory();
+			var cards = CardLibaray.createCards();
+			var races = CardLibaray.createRaces();
+			var profession = CardLibaray.createProfession();
+			var currentRace = "全部";
+			var currentProfesstion = "全部";
+			initSelect("selectRace", races, function(items) {
+				$("#raceSpan").html("种族：" + items[0].text);
+				if(items[0].id == 0) {
+					$("#raceDescraption").html("请选择一个种族")
+				} else {
+					$("#raceDescraption").html(items[0].skillDescription)
+				}
+				currentRace = items[0].race;
+				renderingData(CardFactory.findCard(cards, currentRace, currentProfesstion));
+			});
+			initSelect("selectProfesstion", profession, function(items) {
+				$("#professtionSpan").html("职业：" + items[0].text);
+				if(items[0].id == 0) {
+					$("#professtionDescraption").html("请选择一个职业")
+				} else {
+					$("#professtionDescraption").html(items[0].skillDescription)
+				}
+				currentProfesstion = items[0].profession;
+				renderingData(CardFactory.findCard(cards, currentRace, currentProfesstion));
+			})
+			renderingData(cards);
+			eventBindTableClick();
+			$("#about").click(function() {
+					window.location.href="about.html"
+			})
+
+			function renderingData(data) {
+				var tableHtml = createTBodyHtml(data);
+				$("tbody").html(tableHtml);
+			}
+		</script>
+	</body>
+
+</html>

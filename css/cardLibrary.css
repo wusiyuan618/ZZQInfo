@@ -1,0 +1,33 @@
+div.topBox{
+	width: 100%;
+	height: 50px;
+	background: #0072b0;
+	display: flex;
+	position: fixed;
+}
+div.topButton{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+}
+span.topButton{
+	font-size: 12px;
+	background: #FFFFFF;
+	border-radius: 10px;
+	padding: 5px 20px 5px 20px;
+}
+div.skillDescraption{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 100%;
+	background: #FFFFFF;
+	border-bottom: 1px solid #999999;
+	display: flex;
+	align-items: center;
+}
+span.skillDescraption{
+	font-size: 12px;
+	margin-left: 5px;
+	margin-right: 5px;
+}

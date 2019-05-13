@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--消息页配置-->
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<!--App自定义的css-->
+		<style>
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+			
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			
+			.oa-contact-content {
+				width: 100%;
+			}
+			
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			
+			.oa-contact-name,
+			oa-contact-position {
+				float: left;
+			}
+			
+			div.insidePage {
+				height: 100vh;
+				/*padding-bottom: 50px;*/
+			}
+			
+			iframe.insidePage {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#cardLibrary">
+				<div style="width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+					<span class="mui-icon mui-icon-chat"></span>
+					<span style="font-size: 12px;margin-top: 5px;">棋库</span>
+				</div>
+			</a>
+			<a class="mui-tab-item" href="#recommend">
+				<div style="width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+					<span class="mui-icon mui-icon-compose"></span>
+					<span style="font-size: 12px;margin-top: 5px;">推荐</span>
+				</div>
+			</a>
+			<a class="mui-tab-item" href="#info">
+				<div style="width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+					<span class="mui-icon mui-icon-compose"></span>
+					<span style="font-size: 12px;margin-top: 5px;">资讯</span>
+				</div>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<div id="cardLibrary" class="mui-control-content mui-active insidePage">
+				<iframe class="insidePage" src="cardLibrary.html"></iframe>
+			</div>
+			<div id="recommend" class="mui-control-content insidePage">
+				<iframe class="insidePage" src="recommend.html"></iframe>
+			</div>
+			<div id="info" class="mui-control-content insidePage">
+				<iframe class="insidePage" src="https://tieba.baidu.com/f?kw=%E5%88%80%E5%A1%94%E8%87%AA%E8%B5%B0%E6%A3%8B&ie=utf-8"></iframe>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+	<script> 
+		mui.init({
+			//主页配置
+			swipeBack: true, //启用右滑关闭功能
+			gestureConfig: {
+				tap: true, //默认为true
+				doubletap: true, //默认为false
+				longtap: true, //默认为false
+				swipe: true, //默认为true
+				drag: true, //默认为true
+				hold: false, //默认为false，不监听
+				release: false //默认为false，不监听
+			},
+		});
+		var height=document.documentElement.clientHeight;
+		$("#cardLibrary").css("height",height-20);
+		$("#recommend").css("height",height-20);
+		$("#info").css("height",height-20);
+	</script>
+
+</html>

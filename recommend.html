@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/tablePage.css" />
+		<style>
+			.itemTitle {
+				color: #0072b0;
+			}
+			
+			div.itemDescription {
+				padding: 20px 0 0px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header style="background: #FFFFFF;" class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">推荐</h1>
+			<img id="about" src="imges/about.png" style="width: 30px;height: 30px;position: absolute;right: 15px;top: 8px;"/>
+		</header>
+		<div class="mui-content">
+			<div class="mui-card">
+				<ul id="remendList" class="mui-table-view">
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/CardFactory.js"></script>
+		<script type="text/javascript" src="js/CardLibaray.js"></script>
+		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+		<script>
+			mui.init();
+			var CardLibaray = new CardLibaray();
+			var CardFactory = new CardFactory();
+			var cards = CardLibaray.createCards();
+			var remends = CardLibaray.createRecommend();
+			init();
+//			eventBindTableClick();
+			function init() {
+				for(var i = 0; i < remends.length; i++) {
+					var itemHtml = "";
+					var itemCrads = [];
+					for(var j = 0; j < remends[i].ids.length; j++) {
+						var id = remends[i].ids[j];
+						itemCrads.push(cards[(id - 1)])
+					}
+					itemHtml += '<li class="mui-table-view-cell mui-collapse">'
+					itemHtml += '	<a class="mui-navigate-right" href="#"><span class="itemTitle">' + remends[i].group + '</span></a>'
+					itemHtml += '	<div class="mui-collapse-content">'
+					itemHtml += '		<table>'
+					itemHtml += '			<thead>'
+					itemHtml += '				<tr>'
+					itemHtml += '					<th>ID</th>'
+					itemHtml += '					<th>英雄</th>'
+					itemHtml += '					<th>职业</th>'
+					itemHtml += '					<th>种族</th>'
+					itemHtml += '					<th>金币</th>'
+					itemHtml += '				</tr>'
+					itemHtml += '			</thead>'
+					itemHtml += createTBodyHtml(itemCrads);
+					itemHtml += '			<tbody>'
+					itemHtml += '			</tbody>'
+					itemHtml += '		</table>'
+					itemHtml += '		<div class="itemDescription">' + remends[i].description + '</div>'
+					itemHtml += '	</div>'
+					itemHtml += '</li>'
+					$("#remendList").append(itemHtml);
+				}
+				$("#about").click(function(){
+					window.location.href="about.html"
+				})
+			}
+		</script>
+	</body>
+
+</html>

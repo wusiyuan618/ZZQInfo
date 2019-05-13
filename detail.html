@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--消息页配置-->
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<!--App自定义的css-->
+		<style>
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+			
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			
+			.oa-contact-content {
+				width: 100%;
+			}
+			
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			
+			.oa-contact-name,
+			oa-contact-position {
+				float: left;
+			}
+			
+			iframe.insidePage {
+				width: 100%;
+				height: 100vh;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header style="background: #FFFFFF;" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">棋子详情</h1>
+		</header>
+		<div class="mui-content">
+		    
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+			mui.init();
+			var Request = getURLRequestParam();
+			var url = Request.url;
+			var iframHtml = '<iframe class="insidePage" src="'+url+'"></iframe>'
+			$(".mui-content").html(iframHtml);
+		</script>
+	</body>
+
+</html>

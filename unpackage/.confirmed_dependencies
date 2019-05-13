@@ -1,0 +1,79 @@
+{
+  "detail.html": {
+    "href": "detail.html",
+    "resources": [
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "js/jquery-3.2.1.js",
+      "js/common.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "about.html": {
+    "href": "about.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/jquery-3.2.1.js",
+      "css/mui.min.css",
+      "imges/logo.jpg",
+      "imges/wx.jpg",
+      "imges/zfb.jpg"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "cardLibrary.html": {
+    "href": "cardLibrary.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/mui.picker.css",
+      "css/mui.poppicker.css",
+      "css/cardLibrary.css",
+      "css/tablePage.css",
+      "js/mui.min.js",
+      "js/CardLibaray.js",
+      "js/CardFactory.js",
+      "js/mui.picker.js",
+      "js/mui.poppicker.js",
+      "js/common.js",
+      "js/jquery-3.2.1.js",
+      "imges/about.png"
+    ],
+    "refer": [
+      "detail.html",
+      "about.html"
+    ],
+    "priority": 0
+  },
+  "recommend.html": {
+    "href": "recommend.html",
+    "resources": [
+      "css/mui.min.css",
+      "css/tablePage.css",
+      "js/mui.min.js",
+      "js/common.js",
+      "js/CardFactory.js",
+      "js/CardLibaray.js",
+      "js/jquery-3.2.1.js",
+      "imges/about.png"
+    ],
+    "refer": [
+      "about.html"
+    ],
+    "priority": 0
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/jquery-3.2.1.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "cardLibrary.html",
+      "recommend.html"
+    ],
+    "priority": 0
+  }
+}
